@@ -38,23 +38,24 @@ const SearchBar = () => {
 
   return (
     <div>
-      <div>
+      <div className=" flex justify-center items-center">
         <input
           type="text"
           value={userInput}
           onChange={handleSearch}
           placeholder="Enter country or capital name"
+          className="w-[500px] max-sm:w-[350px] bg-gray-800 border p-3 px-5 text-white rounded-[10px] mx-auto"
         />
       </div>
 
       {error && <div>Error: {error}</div>}
 
       {countryDetails.length > 0 && (
-        <ul>
+        <ul className="bg-gray-300 rounded-[10px] p-1 mt-[2%] py-3">
           {countryDetails.map((country) => (
-            <li key={country.cca3}>
+            <li key={country.cca3} className="hover:bg-white cursor-pointer p-2 rounded-[10px] ">
               <Link to={`/country/${country.name.common}`}>
-                <p>{country.name.common} - {country.capital ? country.capital[0] : "No capital"}</p>
+                <p className="ml-[3%]">{country.name.common} - {country.capital ? country.capital[0] : "No capital"}</p>
               </Link>
             </li>
           ))}

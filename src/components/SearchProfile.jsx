@@ -33,26 +33,28 @@ const SearchProfile = () => {
   if (!countryDetails) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>{countryDetails.name.common} Details</h1>
-      <p>
-        <strong>Capital:</strong>{" "}
-        {countryDetails.capital ? countryDetails.capital[0] : "No capital"}
-      </p>
-      <p>
-        <strong>Region:</strong> {countryDetails.region}
-      </p>
-      <p>
-        <strong>Population:</strong> {countryDetails.population}
-      </p>
-      <p>
-        <strong>Flag:</strong>{" "}
-        <img
-          src={countryDetails.flags.png}
-          alt={`${countryDetails.name.common} flag`}
-          width="100"
-        />
-      </p>
+    <div className="my-5">
+      <img
+        src={countryDetails.flags.png}
+        alt={`${countryDetails.name.common} flag`}
+        className="w-[300px] h-[200px] mx-auto"
+      />
+
+      <div className=" mx-auto my-2 text-center">
+        <h1 className="text-center font-medium">{countryDetails.name.common} Details</h1>
+
+        <p className="my-2">
+          <strong className=" uppercase font-semibold">Capital:</strong>{" "}
+          {countryDetails.capital ? countryDetails.capital[0] : "No capital"}
+        </p>
+        <p className="my-2">
+          <strong className=" uppercase font-semibold">Region:</strong> {countryDetails.region}
+        </p>
+        <p className="my-2">
+          <strong className=" uppercase font-semibold">Population:</strong> {countryDetails.population}
+        </p>
+      </div>
+
     </div>
   );
 };
